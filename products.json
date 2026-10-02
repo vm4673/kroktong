@@ -1,0 +1,6 @@
+[
+{"id":"tum-thai","name":"ตำไทย","heat":"กลมกล่อม","price":50,"image":"https://i.ibb.co/1YxxXkdR/tum-thai-1-1.png","description":"มะละกอสับสด กุ้งแห้ง ถั่วฝักยาว มะเขือเทศ รสเปรี้ยวหวานเค็มลงตัว"},
+{"id":"tum-poo-plara","name":"ตำปูปลาร้า","heat":"จัดจ้าน","price":60,"image":"https://i.ibb.co/zhrpwNqD/tum-poo-plara-1.png","description":"ปูเค็มคู่ปลาร้าหอมเข้มข้น ตำแซ่บแบบอีสานแท้"},
+{"id":"tum-sua","name":"ตำซั่ว","heat":"จัดจ้าน","price":60,"image":"https://i.ibb.co/RkLTHtC8/tum-sua-1.png","description":"ตำเส้นขนมจีนกับผักสด ปลาร้า และเครื่องแน่นๆ กินอิ่มในจานเดียว"},
+{"id":"tum-pa","name":"ตำป่า","heat":"จัดจ้าน","price":70,"image":"https://i.ibb.co/Gv0csV5Z/tum-pa-1-jpg.png","description":"ตำรสป่า เผ็ดร้อน ผักเยอะ ไม่หวาน กินเพลินจนหมดจาน"}
+]
