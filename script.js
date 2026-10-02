@@ -1,5 +1,9 @@
-// ใส่ลิงก์ของคุณตรงนี้ (ดูขั้นตอนใน README)
-const CONFIG={APPS_SCRIPT_URL:'https://script.google.com/macros/s/AKfycbwNjKDqDqOBtPNhyhGfga4Un4LXv3SeqNekEUFEUkMhKIO3oddsPZyaUqV6CIcGGE-B/exec',CSV_URL:'https://docs.google.com/spreadsheets/d/e/2PACX-1vSIZgkpubsKd4olfELOU2Gglupj1OsgnuaowjKcQZE2vs9ZFqKw7IlivJr0c_jNJsPWbvuOfwnQLjr6/pub?gid=0&single=true&output=csv'};
+const CONFIG={
+  APPS_SCRIPT_URL:'https://script.google.com/macros/s/AKfycbwNjKDqDqOBtPNhyhGfga4Un4LXv3SeqNekEUFEUkMhKIO3oddsPZyaUqV6CIcGGE-B/exec',
+  CSV_URL:'https://docs.google.com/spreadsheets/d/e/2PACX-1vSIZgkpubsKd4olfELOU2Gglupj1OsgnuaowjKcQZE2vs9ZFqKw7IlivJr0c_jNJsPWbvuOfwnQLjr6/pub?gid=0&single=true&output=csv',
+  TELEGRAM_BOT_TOKEN:'8841224037:AAFjhCmRhkgIt-Oo8u2Vlz7cW8y12xBvdl0', // ใส่ Bot Token ของคุณที่นี่
+  TELEGRAM_CHAT_ID:'@eieieiei111111'      // ใส่ Chat ID ของคุณที่นี่
+};
 document.documentElement.classList.add('js');
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -20,7 +24,16 @@ async function init(){
   if(q.get('item'))$('#items').value=q.get('item');if(q.get('price'))$('#total').value=q.get('price');
   form.onsubmit=e=>{e.preventDefault();
    const payload={customerName:$('#customerName').value,contact:$('#contact').value,items:$('#items').value,total:$('#total').value,note:$('#note').value};
-   fetch(CONFIG.APPS_SCRIPT_URL,{method:'POST',body:JSON.stringify(payload)})
+   
+   // สร้างข้อความและกำหนด URL สำหรับ Telegram
+   const tgMsg = `🔥 มีออเดอร์ใหม่!\n👤 ชื่อ: ${payload.customerName}\n📞 ติดต่อ: ${payload.contact}\n🛒 สินค้า: ${payload.items}\n💰 ยอดรวม: ${payload.total} บาท\n📝 หมายเหตุ: ${payload.note || '-'}`;
+   const tgUrl = `https://api.telegram.org/bot${CONFIG.TELEGRAM_BOT_TOKEN}/sendMessage`;
+
+   // ยิง API ไปทั้ง Google Apps Script และ Telegram พร้อมกัน
+   Promise.all([
+     fetch(CONFIG.APPS_SCRIPT_URL,{method:'POST',body:JSON.stringify(payload)}),
+     fetch(tgUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:CONFIG.TELEGRAM_CHAT_ID,text:tgMsg})})
+   ])
    .then(()=>{window.location.href='thankyou.html'})
    .catch(err=>{console.error(err);alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง')})}}
  const tb=$('#ordersTable tbody');
