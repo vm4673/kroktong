@@ -1,5 +1,5 @@
 // ใส่ลิงก์ของคุณตรงนี้ (ดูขั้นตอนใน README)
-const CONFIG={APPS_SCRIPT_URL:'PASTE_APPS_SCRIPT_URL_HERE',CSV_URL:'https://script.google.com/macros/s/AKfycbwNjKDqDqOBtPNhyhGfga4Un4LXv3SeqNekEUFEUkMhKIO3oddsPZyaUqV6CIcGGE-B/exec'};
+const CONFIG={APPS_SCRIPT_URL:'https://script.google.com/macros/s/AKfycbwNjKDqDqOBtPNhyhGfga4Un4LXv3SeqNekEUFEUkMhKIO3oddsPZyaUqV6CIcGGE-B/exec',CSV_URL:'https://docs.google.com/spreadsheets/d/e/2PACX-1vSIZgkpubsKd4olfELOU2Gglupj1OsgnuaowjKcQZE2vs9ZFqKw7IlivJr0c_jNJsPWbvuOfwnQLjr6/pub?gid=0&single=true&output=csv'};
 document.documentElement.classList.add('js');
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
