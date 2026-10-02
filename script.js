@@ -1,5 +1,5 @@
 // ใส่ลิงก์ของคุณตรงนี้ (ดูขั้นตอนใน README)
-const CONFIG={APPS_SCRIPT_URL:'PASTE_APPS_SCRIPT_URL_HERE',CSV_URL:'PASTE_CSV_URL_HERE'};
+const CONFIG={APPS_SCRIPT_URL:'PASTE_APPS_SCRIPT_URL_HERE',CSV_URL:'https://script.google.com/macros/s/AKfycbwNjKDqDqOBtPNhyhGfga4Un4LXv3SeqNekEUFEUkMhKIO3oddsPZyaUqV6CIcGGE-B/exec'};
 document.documentElement.classList.add('js');
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
